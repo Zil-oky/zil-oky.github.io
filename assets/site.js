@@ -62,10 +62,13 @@
   document.querySelectorAll('.faq-btn').forEach(function (btn) {
     var panel = document.getElementById(btn.getAttribute('aria-controls'));
     if (!panel) return;
+    var inner = panel.querySelector('.faq-inner');
+    if (inner) inner.setAttribute('aria-hidden', 'true');
     btn.addEventListener('click', function () {
       var open = btn.getAttribute('aria-expanded') === 'true';
       btn.setAttribute('aria-expanded', String(!open));
       panel.classList.toggle('is-open', !open);
+      if (inner) inner.setAttribute('aria-hidden', String(open));
     });
   });
 
@@ -101,11 +104,16 @@
         ta.style.cssText = 'position:fixed;opacity:0;pointer-events:none';
         document.body.appendChild(ta);
         ta.focus(); ta.select();
-        try { document.execCommand('copy'); } catch (_) {}
+        var ok = false;
+        try { ok = document.execCommand('copy'); } catch (_) {}
         document.body.removeChild(ta);
-        btn.classList.add('copied');
-        showToast('Copied to clipboard');
-        setTimeout(function () { btn.classList.remove('copied'); }, 2200);
+        if (ok) {
+          btn.classList.add('copied');
+          showToast('Copied to clipboard');
+          setTimeout(function () { btn.classList.remove('copied'); }, 2200);
+        } else {
+          showToast('Copy @ziloky manually');
+        }
       }
     });
   }
