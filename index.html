@@ -4,79 +4,51 @@
 <script>document.documentElement.classList.remove('no-js');</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="color-scheme" content="dark light">
-<meta name="theme-color" content="#0b0c0e" media="(prefers-color-scheme: dark)">
-<meta name="theme-color" content="#fafaf8" media="(prefers-color-scheme: light)">
 
-<title>Ziloky — Discord Architect &amp; Bot Developer</title>
-<meta name="description" content="Discord server architect and custom bot developer. Three years, 50+ servers built. Custom moderation bots in Node.js and discord.js. Based in Sweden, taking new projects.">
+<title>Ziloky — Discord Server Builder and Bot Developer</title>
+<meta name="description" content="Discord server architect and custom bot developer based in Sweden. Three years, 50+ servers built, custom moderation bots in Node.js. Taking new projects.">
 <meta name="author" content="Ziloky">
-<meta name="keywords" content="discord, discord server, discord bot, discord.js, node.js, moderation bot, server architect, server setup, server builder, custom bot development, ziloky">
 <link rel="canonical" href="https://zil-oky.github.io/">
 
-<!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Ziloky">
 <meta property="og:url" content="https://zil-oky.github.io/">
-<meta property="og:title" content="Ziloky — Discord Architect &amp; Bot Developer">
+<meta property="og:title" content="Ziloky — Discord Server Builder and Bot Developer">
 <meta property="og:description" content="I build the servers that run themselves. Three years, 50+ Discord servers, custom moderation bots in Node.js.">
 <meta property="og:image" content="https://zil-oky.github.io/assets/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Ziloky portfolio cover: I build the servers that run themselves. 3 years, 50+ servers, Node.js + discord.js.">
+<meta property="og:image:alt" content="Ziloky — Discord server builder and bot developer based in Sweden.">
 <meta property="og:locale" content="en_US">
 
-<!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Ziloky — Discord Architect &amp; Bot Developer">
+<meta name="twitter:title" content="Ziloky — Discord Server Builder and Bot Developer">
 <meta name="twitter:description" content="I build the servers that run themselves. Three years, 50+ Discord servers, custom moderation bots.">
 <meta name="twitter:image" content="https://zil-oky.github.io/assets/og-image.png">
-<meta name="twitter:image:alt" content="Ziloky portfolio cover: I build the servers that run themselves.">
+<meta name="twitter:image:alt" content="Ziloky — Discord server builder and bot developer.">
 
-<!-- Icons & manifest -->
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 
-<!-- Fonts: preconnect, then load CSS async (non-blocking) with a noscript fallback. -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
-
-<!-- Structured data -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Ziloky",
-  "alternateName": "ziloky",
   "url": "https://zil-oky.github.io/",
-  "image": "https://zil-oky.github.io/assets/og-image.png",
-  "jobTitle": "Discord Architect & Bot Developer",
-  "description": "Discord server architect and custom bot developer. Three years, 50+ servers built.",
-  "address": {
-    "@type": "PostalAddress",
-    "addressCountry": "SE"
-  },
-  "knowsAbout": [
-    "Discord server architecture",
-    "Discord bot development",
-    "Node.js",
-    "discord.js",
-    "Community moderation",
-    "Automod configuration"
-  ],
-  "makesOffer": [
-    { "@type": "Offer", "name": "Discord server buildouts" },
-    { "@type": "Offer", "name": "Custom moderation bot development" },
-    { "@type": "Offer", "name": "Third-party bot configuration" },
-    { "@type": "Offer", "name": "Server redesigns and rescue" }
-  ]
+  "jobTitle": "Discord Server Builder and Bot Developer",
+  "description": "Discord server architect and custom bot developer based in Sweden.",
+  "address": { "@type": "PostalAddress", "addressCountry": "SE" },
+  "knowsAbout": ["Discord server architecture","Discord bot development","Node.js","discord.js","Community moderation","Automod configuration"]
 }
 </script>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
 <link rel="stylesheet" href="/assets/styles.css">
 </head>
 <body>
@@ -85,367 +57,245 @@
 
 <div class="wrap">
 
-  <nav class="topbar reveal" aria-label="Primary">
-    <a class="logo" href="/" aria-label="Ziloky portfolio — home">
-      <span class="mark" aria-hidden="true">Z</span>
-      <span class="logo-text">ziloky<span class="muted">/portfolio</span></span>
-    </a>
-    <div class="nav-right">
-      <div class="nav-links">
-        <a href="#services">services</a>
-        <a href="#work">work</a>
-        <a href="#faq">faq</a>
-        <a href="#contact">contact</a>
-      </div>
-      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to light theme" aria-pressed="false">
-        <svg id="themeIcon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-        </svg>
-      </button>
+  <nav class="pill-nav" aria-label="Primary">
+    <div class="pill-nav-inner">
+      <a class="nav-mark" href="/" aria-label="Ziloky — home">Z</a>
+      <div class="nav-sep" aria-hidden="true"></div>
+      <a class="nav-link" href="#services">services</a>
+      <a class="nav-link" href="#work">work</a>
+      <a class="nav-link" href="#faq">faq</a>
+      <a class="nav-link" href="#contact">contact</a>
     </div>
   </nav>
 
   <main id="main">
 
-  <header class="hero">
-    <div class="eyebrow reveal d1">Ziloky · Discord Architect · Bot Developer</div>
-    <h1 class="reveal d2">
-      I build <em>the servers</em><br>
-      that <span class="accent has-flourish">run themselves<svg class="flourish" viewBox="0 0 220 14" aria-hidden="true" focusable="false"><path d="M2 9 C 38 2, 78 14, 118 6 S 200 2, 218 8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></span>.
-    </h1>
-    <p class="lede reveal d3">
-      Three years designing <strong>Discord communities</strong> from the structure up,
-      channels, roles, permissions, and custom moderation bots that keep everything
-      running when nobody's watching.
-    </p>
-
-    <div class="hero-meta reveal d4">
-      <div>
-        <span class="label">Based in</span>
-        <span class="value">Sweden, CET</span>
-      </div>
-      <div>
-        <span class="label">Experience</span>
-        <span class="value">3 years · 50+ servers</span>
-      </div>
-      <div>
-        <span class="label">Stack</span>
-        <span class="value">Node.js · discord.js</span>
-      </div>
-      <div>
-        <span class="label">Availability</span>
-        <span class="value live"><span class="sr-only">Status: </span>Taking new projects</span>
-      </div>
-    </div>
-  </header>
-
-  <section id="stats" aria-labelledby="stats-heading">
-    <div class="section-head">
-      <span class="num" aria-hidden="true">01</span>
-      <h2 id="stats-heading">By <em>the numbers</em></h2>
-      <div class="rule" aria-hidden="true"></div>
-    </div>
-    <div class="stats" data-reveal>
-      <div class="stat">
-        <div class="n">50<span class="unit">+</span></div>
-        <div class="k">Servers built</div>
-      </div>
-      <div class="stat">
-        <div class="n">10<span class="unit">+</span></div>
-        <div class="k">Redesigns</div>
-      </div>
-      <div class="stat">
-        <div class="n">79<span class="unit">k</span></div>
-        <div class="k">Largest community</div>
-      </div>
-      <div class="stat">
-        <div class="n">3<span class="unit">yr</span></div>
-        <div class="k">Experience</div>
-      </div>
-    </div>
-  </section>
-
-  <section id="services" aria-labelledby="services-heading">
-    <div class="section-head">
-      <span class="num" aria-hidden="true">02</span>
-      <h2 id="services-heading">What <em>I do</em></h2>
-      <div class="rule" aria-hidden="true"></div>
-    </div>
-
-    <div class="services" data-reveal>
-      <div class="service">
-        <div class="num">SERVER ARCHITECTURE</div>
-        <h3>Full server buildouts</h3>
-        <p>From empty server to production-ready community. Built to scale cleanly without becoming a permissions mess six months later.</p>
-        <ul>
-          <li>Channel &amp; category structure</li>
-          <li>Role hierarchy &amp; permissions</li>
-          <li>Onboarding &amp; verification</li>
-          <li>Rules, FAQ, and info channels</li>
-        </ul>
-      </div>
-
-      <div class="service">
-        <div class="num">BOT DEVELOPMENT</div>
-        <h3>Custom moderation bots</h3>
-        <p>Not off-the-shelf MEE6 configurations, actual code, written for your server. Node.js, discord.js, full slash and prefix command support.</p>
-        <ul>
-          <li>Tiered auto-punishment</li>
-          <li>Automod, anti-spam, anti-raid</li>
-          <li>Message &amp; action logging</li>
-          <li>Persistent tempbans</li>
-        </ul>
-      </div>
-
-      <div class="service">
-        <div class="num">BOT CONFIGURATION</div>
-        <h3>Third-party bot setup</h3>
-        <p>Dyno, Carl-bot, Ticket Tool, Sapphire, configured properly the first time. Logs that capture what matters, automod that doesn't false-positive your members.</p>
-        <ul>
-          <li>Automod rules &amp; filters</li>
-          <li>Ticket systems</li>
-          <li>Reaction roles</li>
-          <li>Logging channels</li>
-        </ul>
-      </div>
-
-      <div class="service">
-        <div class="num">SERVER RESCUE</div>
-        <h3>Redesigns &amp; fixes</h3>
-        <p>Inherited a messy server? Roles that make no sense, channels nobody uses, permissions held together with duct tape. I audit, restructure, and hand it back clean.</p>
-        <ul>
-          <li>Permission audits</li>
-          <li>Structural redesigns</li>
-          <li>Staff team organization</li>
-          <li>Moderation workflow fixes</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section id="work" aria-labelledby="work-heading">
-    <div class="section-head">
-      <span class="num" aria-hidden="true">03</span>
-      <h2 id="work-heading">Featured <em>build</em></h2>
-      <div class="rule" aria-hidden="true"></div>
-    </div>
-
-    <a class="bot-box bot-box--link" href="/case-studies/clicker-evolution/" data-reveal aria-labelledby="work-card-heading">
-      <div class="bot-header">
-        <span class="tag">CASE STUDY</span>
-        <span>Clicker Evolution, Custom moderation bot</span>
-      </div>
-      <div class="bot-body">
-        <h3 id="work-card-heading">A moderation bot built from scratch</h3>
-        <p>25+ commands, dual slash and prefix support. Tiered auto-punishment that escalates from 3 to 15 warns. Persistent tempbans that survive restarts. Automod with burst-spam detection. Logging split by purpose.</p>
-        <span class="bot-cta" aria-hidden="true">Read the case study <span class="arrow">→</span></span>
-      </div>
-    </a>
-  </section>
-
-  <section id="experience" aria-labelledby="experience-heading">
-    <div class="section-head">
-      <span class="num" aria-hidden="true">04</span>
-      <h2 id="experience-heading">Track <em>record</em></h2>
-      <div class="rule" aria-hidden="true"></div>
-    </div>
-
-    <div class="exp-list" data-reveal>
-      <div class="exp-item">
-        <div class="exp-year">~3 years</div>
-        <div class="exp-content">
-          <h4>Head Moderator, <span class="highlight">~79,000 member community</span></h4>
-          <p>Managed staff teams, handled raid events, resolved member conflicts, and maintained server structure at scale. Built moderation workflows that prevented issues rather than reacting to them.</p>
-        </div>
-      </div>
-      <div class="exp-item">
-        <div class="exp-year">Ongoing</div>
-        <div class="exp-content">
-          <h4>Server Builder, <span class="highlight">50+ servers from scratch</span></h4>
-          <p>Full architecture work for gaming, community, and development servers. Designed channel structures, role hierarchies, and permission systems that scale from launch through growth.</p>
-        </div>
-      </div>
-      <div class="exp-item">
-        <div class="exp-year">Ongoing</div>
-        <div class="exp-content">
-          <h4>Bot Developer, <span class="highlight">custom Node.js / discord.js bots</span></h4>
-          <p>Built moderation bots with 25+ commands, automod, anti-raid, tempban persistence, and tiered punishment systems. Also configured Dyno, Carl-bot, Sapphire, and Ticket Tool across dozens of servers.</p>
-        </div>
-      </div>
-      <div class="exp-item">
-        <div class="exp-year">Philosophy</div>
-        <div class="exp-content">
-          <h4>Stability over strictness</h4>
-          <p>I prefer building systems that prevent problems over moderation that punishes them. Clean structure, consistent staff workflows, and automation that catches issues before they spread.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="testimonials" aria-labelledby="testimonials-heading">
-    <div class="section-head">
-      <span class="num" aria-hidden="true">05</span>
-      <h2 id="testimonials-heading">Client <em>voices</em></h2>
-      <div class="rule" aria-hidden="true"></div>
-    </div>
-    <div id="testimonials-mount" data-testimonials-src="/data/testimonials.json" data-reveal>
-      <!-- Default (empty-state) markup. JS replaces this with cards if /data/testimonials.json has entries. -->
-      <div class="testimonials-empty">
-        <div class="label" aria-hidden="true">REFERENCES AVAILABLE</div>
-        <p class="testimonials-empty-msg">
-          Testimonials coming soon — recently delivered work, <strong>references
-          available on request</strong>.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section id="faq" aria-labelledby="faq-heading">
-    <div class="section-head">
-      <span class="num" aria-hidden="true">06</span>
-      <h2 id="faq-heading">Frequently <em>asked</em></h2>
-      <div class="rule" aria-hidden="true"></div>
-    </div>
-    <div class="faq-list" data-reveal>
-      <div class="faq-item">
-        <h3 class="faq-h">
-          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-1" id="faq-q-1">
-            <span>How much do you charge?</span>
-            <span class="icon" aria-hidden="true">+</span>
-          </button>
-        </h3>
-        <section class="faq-a" id="faq-a-1" aria-labelledby="faq-q-1" hidden>
-          <div class="faq-a-inner">
-            Pricing depends on scope. Every project is different, server size, bot complexity, turnaround time, and the platform you're paying through all factor in. We'll talk through what you need and agree on a price that works for both of us before any work starts.
-          </div>
-        </section>
-      </div>
-
-      <div class="faq-item">
-        <h3 class="faq-h">
-          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-2" id="faq-q-2">
-            <span>Do you accept Robux or PayPal?</span>
-            <span class="icon" aria-hidden="true">+</span>
-          </button>
-        </h3>
-        <section class="faq-a" id="faq-a-2" aria-labelledby="faq-q-2" hidden>
-          <div class="faq-a-inner">
-            Both. Robux via group payout, gamepass, or shirt purchase. PayPal for USD payments. Roblox tax (30%) is factored into Robux quotes so the final amount lands right.
-          </div>
-        </section>
-      </div>
-
-      <div class="faq-item">
-        <h3 class="faq-h">
-          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-3" id="faq-q-3">
-            <span>Will I own the code after delivery?</span>
-            <span class="icon" aria-hidden="true">+</span>
-          </button>
-        </h3>
-        <section class="faq-a" id="faq-a-3" aria-labelledby="faq-q-3" hidden>
-          <div class="faq-a-inner">
-            Your choice. I can deliver the project as fully owned, code, assets, and all rights transfer to you on final payment, or we can arrange a licensing setup if that fits your situation better. Discussed and agreed on before the project starts.
-          </div>
-        </section>
-      </div>
-
-      <div class="faq-item">
-        <h3 class="faq-h">
-          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-4" id="faq-q-4">
-            <span>Can you fix or redesign an existing server?</span>
-            <span class="icon" aria-hidden="true">+</span>
-          </button>
-        </h3>
-        <section class="faq-a" id="faq-a-4" aria-labelledby="faq-q-4" hidden>
-          <div class="faq-a-inner">
-            Yes. Server audits and redesigns are one of my core offerings. I restructure channels, roles, permissions, and moderation flow without disrupting your existing community. Members keep their places, the structure gets cleaner.
-          </div>
-        </section>
-      </div>
-
-      <div class="faq-item">
-        <h3 class="faq-h">
-          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-5" id="faq-q-5">
-            <span>Do you offer ongoing support after delivery?</span>
-            <span class="icon" aria-hidden="true">+</span>
-          </button>
-        </h3>
-        <section class="faq-a" id="faq-a-5" aria-labelledby="faq-q-5" hidden>
-          <div class="faq-a-inner">
-            I include 7 days of free bug fixes after delivery, if something I built breaks, I fix it. After that, ongoing support, updates, and new features are available for a small monthly retainer or per-request.
-          </div>
-        </section>
-      </div>
-
-      <div class="faq-item">
-        <h3 class="faq-h">
-          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-6" id="faq-q-6">
-            <span>Do you host bots for clients?</span>
-            <span class="icon" aria-hidden="true">+</span>
-          </button>
-        </h3>
-        <section class="faq-a" id="faq-a-6" aria-labelledby="faq-q-6" hidden>
-          <div class="faq-a-inner">
-            No, hosting stays on your end. Running a bot long term costs money and requires someone available to fix things at 3am if it goes down. I'll recommend hosting options (free and paid) and help you get set up during delivery, but the bot lives on your infrastructure.
-          </div>
-        </section>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact" aria-labelledby="contact-heading">
-    <div class="contact" data-reveal>
-      <div class="label" aria-hidden="true">↓ GET IN TOUCH</div>
-      <h2 id="contact-heading">Ready to <em>build</em> <span class="accent">something?</span></h2>
-      <p class="note">Server buildouts, custom bots, redesigns, and rescue jobs. Currently taking new projects, reach out to discuss scope and pricing.</p>
-      <div class="contact-methods">
-        <button class="contact-pill" id="copyDiscord" type="button" aria-label="Copy Discord username ziloky to clipboard">
-          <span class="default">
-            <span class="dot" aria-hidden="true"></span>
-            <span>Discord: <strong>ziloky</strong></span>
-          </span>
-          <span class="check" aria-hidden="true">✓ Copied to clipboard</span>
+    <header class="hero">
+      <div class="hero-glow hero-glow-core" aria-hidden="true"></div>
+      <div class="hero-glow hero-glow-halo" aria-hidden="true"></div>
+      <div class="hero-content">
+        <div class="hero-eyebrow">Sweden · Discord Architect · Bot Developer</div>
+        <span class="hero-name" role="heading" aria-level="1">ZILOKY</span>
+        <p class="hero-lede">I build the servers that run themselves. Architecture, custom bots, communities built to scale.</p>
+        <button class="hero-cta" id="copyHero" type="button"
+          aria-label="Copy Discord username @ziloky to clipboard">
+          <span class="hero-cta-dot" aria-hidden="true"></span>
+          @ziloky on Discord
         </button>
       </div>
-      <p class="contact-primary-note">Discord is the fastest path. Other channels below.</p>
-    </div>
+    </header>
 
-    <div class="contact-extras" data-reveal>
-      <div class="contact-secondary" aria-labelledby="other-channels-heading">
-        <h3 id="other-channels-heading" class="contact-extras-title">Other channels</h3>
-        <ul class="contact-secondary-list">
-          <li>
-            <span class="csl-key">GitHub</span>
-            <span class="csl-val"><a href="https://github.com/zil-oky" rel="me noopener">github.com/zil-oky</a></span>
-          </li>
-        </ul>
+    <section class="section" id="numbers" aria-label="Stats" data-reveal>
+      <div class="section-eyebrow">by the numbers</div>
+      <div class="nums">
+        <div class="stat-card">
+          <div class="stat-n"><span class="stat-val" data-target="50">50</span><em>+</em></div>
+          <div class="stat-k">Servers built</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-n"><span class="stat-val" data-target="79">79</span><em>k</em></div>
+          <div class="stat-k">Largest community</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-n"><span class="stat-val" data-target="10">10</span><em>+</em></div>
+          <div class="stat-k">Bots deployed</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-n"><span class="stat-val" data-target="3">3</span><em>yr</em></div>
+          <div class="stat-k">Experience</div>
+        </div>
       </div>
+    </section>
 
-      <div class="contact-checklist" aria-labelledby="checklist-heading">
-        <h3 id="checklist-heading" class="contact-extras-title">What to include in your first message</h3>
-        <p class="contact-extras-sub">Five lines saves us both an hour of back-and-forth.</p>
-        <ul class="checklist">
-          <li><span class="cl-key">Server purpose</span><span class="cl-val">Gaming, community, dev, business — what's the server <em>for</em>?</span></li>
-          <li><span class="cl-key">Size</span><span class="cl-val">Current member count, or expected at launch.</span></li>
-          <li><span class="cl-key">Timeline</span><span class="cl-val">When do you need this live? Hard deadline or flexible?</span></li>
-          <li><span class="cl-key">Budget range</span><span class="cl-val">Even an order of magnitude helps me scope honestly.</span></li>
-          <li><span class="cl-key">Payment</span><span class="cl-val">PayPal (USD), Robux, or something else?</span></li>
-        </ul>
+    <section class="section" id="services" aria-labelledby="services-h" data-reveal>
+      <div class="section-eyebrow">what i do</div>
+      <h2 class="section-h" id="services-h">Services</h2>
+      <div class="services-grid">
+        <div class="svc-card">
+          <div class="svc-tag">Server Architecture</div>
+          <div class="svc-title">Full server buildouts</div>
+          <p class="svc-desc">From empty server to production-ready community. Channels, roles, permissions, and onboarding built to scale cleanly without becoming a mess six months later.</p>
+        </div>
+        <div class="svc-card">
+          <div class="svc-tag">Bot Development</div>
+          <div class="svc-title">Custom moderation bots</div>
+          <p class="svc-desc">Not off-the-shelf configs. Node.js code written for your server. Tiered punishment, automod, anti-raid, and tempbans that survive restarts.</p>
+        </div>
+        <div class="svc-card">
+          <div class="svc-tag">Bot Configuration</div>
+          <div class="svc-title">Third-party bot setup</div>
+          <p class="svc-desc">Dyno, Carl-bot, Ticket Tool, Sapphire. Configured properly the first time, with logs that capture what matters and automod that doesn't false-positive your members.</p>
+        </div>
+        <div class="svc-card">
+          <div class="svc-tag">Server Rescue</div>
+          <div class="svc-title">Redesigns and fixes</div>
+          <p class="svc-desc">Inherited a messy server? Permissions held together with duct tape? I audit, restructure, and hand it back clean. Members keep their roles, the structure gets better.</p>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <section class="section" id="work" aria-labelledby="work-h" data-reveal>
+      <div class="section-eyebrow">featured work</div>
+      <h2 class="section-h sr-only" id="work-h">Featured build</h2>
+      <a class="cs-feature" href="/case-studies/clicker-evolution/" aria-labelledby="cs-title">
+        <div class="cs-feature-header">
+          <span class="cs-tag">Case Study</span>
+          <span>Clicker Evolution — Custom moderation bot</span>
+        </div>
+        <div class="cs-feature-body">
+          <div class="cs-title" id="cs-title">A moderation bot built from scratch</div>
+          <p class="cs-desc">25+ commands, dual slash and prefix support. Tiered auto-punishment that escalates from 3 to 15 warns. Persistent tempbans that survive restarts. Automod with burst-spam detection. Logging split by purpose.</p>
+          <span class="cs-read" aria-hidden="true">Read the case study <span class="cs-arrow">→</span></span>
+        </div>
+      </a>
+    </section>
+
+    <section class="section" id="experience" aria-labelledby="exp-h" data-reveal>
+      <div class="section-eyebrow">track record</div>
+      <h2 class="section-h" id="exp-h">Experience</h2>
+      <div class="track-list">
+        <div class="track-item">
+          <div class="track-label">~3 years</div>
+          <div>
+            <h3 class="track-h">Head Moderator, <em>~79,000 member community</em></h3>
+            <p class="track-p">Managed staff teams, handled raid events, resolved member conflicts, and maintained server structure at scale. Built moderation workflows that prevented issues rather than reacting to them.</p>
+          </div>
+        </div>
+        <div class="track-item">
+          <div class="track-label">Ongoing</div>
+          <div>
+            <h3 class="track-h">Server Builder, <em>50+ servers from scratch</em></h3>
+            <p class="track-p">Full architecture for gaming, community, and dev servers. Channel structures, role hierarchies, and permission systems built to scale from launch through growth.</p>
+          </div>
+        </div>
+        <div class="track-item">
+          <div class="track-label">Ongoing</div>
+          <div>
+            <h3 class="track-h">Bot Developer, <em>Node.js and discord.js</em></h3>
+            <p class="track-p">Built moderation bots with 25+ commands, automod, anti-raid, tempban persistence, and tiered punishment systems. Also configured Dyno, Carl-bot, Sapphire, and Ticket Tool across dozens of servers.</p>
+          </div>
+        </div>
+        <div class="track-item">
+          <div class="track-label">Philosophy</div>
+          <div>
+            <h3 class="track-h">Stability over strictness</h3>
+            <p class="track-p">Systems that prevent problems over moderation that punishes them. Clean structure, consistent staff workflows, and automation that catches issues before they spread.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq" aria-labelledby="faq-h" data-reveal>
+      <div class="section-eyebrow">questions</div>
+      <h2 class="section-h" id="faq-h">FAQ</h2>
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <button class="faq-btn" type="button" aria-expanded="false"
+            aria-controls="faq-panel-1" id="faq-btn-1">
+            <span>How much do you charge?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-panel" id="faq-panel-1" role="region" aria-labelledby="faq-btn-1">
+            <div class="faq-inner"><div class="faq-inner-pad">
+              Pricing depends on scope. Every project is different. Server size, bot complexity, turnaround time, and payment method all factor in. We'll agree on a price before any work starts.
+            </div></div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-btn" type="button" aria-expanded="false"
+            aria-controls="faq-panel-2" id="faq-btn-2">
+            <span>Do you accept Robux or PayPal?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-panel" id="faq-panel-2" role="region" aria-labelledby="faq-btn-2">
+            <div class="faq-inner"><div class="faq-inner-pad">
+              Both. Robux via group payout, gamepass, or shirt purchase. PayPal for USD. Roblox tax (30%) is factored into Robux quotes so the final amount lands right.
+            </div></div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-btn" type="button" aria-expanded="false"
+            aria-controls="faq-panel-3" id="faq-btn-3">
+            <span>Will I own the code after delivery?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-panel" id="faq-panel-3" role="region" aria-labelledby="faq-btn-3">
+            <div class="faq-inner"><div class="faq-inner-pad">
+              Your choice. Full ownership transfers on final payment. Code, assets, all rights. Or a licensing setup if that fits better. Agreed on before the project starts.
+            </div></div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-btn" type="button" aria-expanded="false"
+            aria-controls="faq-panel-4" id="faq-btn-4">
+            <span>Can you fix or redesign an existing server?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-panel" id="faq-panel-4" role="region" aria-labelledby="faq-btn-4">
+            <div class="faq-inner"><div class="faq-inner-pad">
+              Yes. Audits and redesigns are a core offering. I restructure channels, roles, permissions, and moderation flow without disrupting your existing community. Members keep their places, the structure gets cleaner.
+            </div></div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-btn" type="button" aria-expanded="false"
+            aria-controls="faq-panel-5" id="faq-btn-5">
+            <span>Do you offer ongoing support after delivery?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-panel" id="faq-panel-5" role="region" aria-labelledby="faq-btn-5">
+            <div class="faq-inner"><div class="faq-inner-pad">
+              7 days of free bug fixes after delivery. If something I built breaks, I fix it. After that, ongoing support and updates are available for a small monthly retainer or per request.
+            </div></div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-btn" type="button" aria-expanded="false"
+            aria-controls="faq-panel-6" id="faq-btn-6">
+            <span>Do you host bots for clients?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-panel" id="faq-panel-6" role="region" aria-labelledby="faq-btn-6">
+            <div class="faq-inner"><div class="faq-inner-pad">
+              No. Hosting stays on your end. Running a bot long-term costs money and needs someone available if it goes down. I'll recommend options and help you get set up during delivery, but the bot lives on your infrastructure.
+            </div></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section" id="contact" aria-labelledby="contact-h" data-reveal>
+      <div class="contact-section">
+        <div class="contact-inner">
+          <div class="contact-kicker">get in touch</div>
+          <h2 class="contact-h" id="contact-h">Ready to <em>build</em> something?</h2>
+          <p class="contact-body">Server buildouts, custom bots, redesigns, and rescue jobs. Taking new projects. Reach out to discuss scope and pricing.</p>
+          <button class="contact-pill" id="copyDiscord" type="button"
+            aria-label="Copy Discord username @ziloky to clipboard">
+            <span class="contact-dot" aria-hidden="true"></span>
+            Discord: <strong>@ziloky</strong>
+          </button>
+        </div>
+      </div>
+    </section>
 
   </main>
 
   <footer class="foot">
-    <div>© <span id="year">2026</span> ziloky · built from scratch, no templates</div>
-    <div>designed in one sitting</div>
+    <span>© <span id="year">2026</span> ziloky</span>
+    <span>discord server builder. bot developer.</span>
   </footer>
 
 </div>
 
 <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
-
 <script src="/assets/site.js" defer></script>
 </body>
 </html>
