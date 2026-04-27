@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<script>document.documentElement.classList.remove('no-js');</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#0b0c0e" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#fafaf8" media="(prefers-color-scheme: light)">
+
+<title>Clicker Evolution — Custom Discord Moderation Bot · Ziloky</title>
+<meta name="description" content="Case study: a custom moderation bot for a Discord server, written from scratch in Node.js. 25+ commands, tiered auto-punishment, persistent tempbans, automod, and structured logging.">
+<meta name="author" content="Ziloky">
+<link rel="canonical" href="https://zil-oky.github.io/case-studies/clicker-evolution/">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Ziloky">
+<meta property="og:url" content="https://zil-oky.github.io/case-studies/clicker-evolution/">
+<meta property="og:title" content="Clicker Evolution — Custom Discord Moderation Bot · Ziloky">
+<meta property="og:description" content="A moderation bot built from scratch in Node.js. 25+ commands, tiered auto-punishment, persistent tempbans, automod, structured logging.">
+<meta property="og:image" content="https://zil-oky.github.io/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Ziloky portfolio cover.">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Clicker Evolution — Custom Discord Moderation Bot · Ziloky">
+<meta name="twitter:description" content="A moderation bot built from scratch in Node.js. 25+ commands, tiered auto-punishment, persistent tempbans, automod, structured logging.">
+<meta name="twitter:image" content="https://zil-oky.github.io/assets/og-image.png">
+
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Clicker Evolution — Custom Discord Moderation Bot",
+  "description": "Case study: a custom moderation bot for a Discord server, written from scratch in Node.js.",
+  "author": { "@type": "Person", "name": "Ziloky", "url": "https://zil-oky.github.io/" },
+  "image": "https://zil-oky.github.io/assets/og-image.png",
+  "mainEntityOfPage": "https://zil-oky.github.io/case-studies/clicker-evolution/"
+}
+</script>
+
+<link rel="stylesheet" href="/assets/styles.css">
+<style>
+  /* Case-study page-specific tweaks */
+  .breadcrumb{
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--ink-faint);
+    margin-bottom: 28px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .breadcrumb a{
+    color: var(--ink-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .breadcrumb a:hover{color: var(--accent)}
+  .breadcrumb .sep{color: var(--ink-faint)}
+
+  header.case-hero h1{
+    font-size: clamp(40px, 6.5vw, 72px);
+    margin-bottom: 28px;
+  }
+  .case-hero .lede{font-size: 18px}
+
+  .prose{
+    color: var(--ink);
+    font-size: 15.5px;
+    line-height: 1.75;
+    max-width: 640px;
+  }
+  .prose p + p{margin-top: 18px}
+  .prose strong{color: var(--ink); font-weight: 500}
+  .prose em{font-style: italic; color: var(--ink-muted)}
+
+  .feature-detail{
+    border-top: 1px solid var(--line);
+    padding: 28px 0;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 32px;
+    align-items: start;
+  }
+  .feature-detail:last-child{border-bottom: 1px solid var(--line)}
+  .feature-detail .label{
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    padding-top: 4px;
+  }
+  .feature-detail .body{color: var(--ink-muted); font-size: 14.5px; line-height: 1.7}
+  .feature-detail .body strong{color: var(--ink); font-weight: 500}
+
+  .stack-list{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .stack-item{
+    background: var(--bg-raised);
+    padding: 24px;
+  }
+  .stack-item .name{
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--accent);
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  .stack-item .why{
+    color: var(--ink-muted);
+    font-size: 13.5px;
+    line-height: 1.65;
+  }
+
+  .outcome-list{display: flex; flex-direction: column}
+  .outcome-list li{
+    list-style: none;
+    border-top: 1px solid var(--line);
+    padding: 20px 0 20px 28px;
+    position: relative;
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+  .outcome-list li:last-child{border-bottom: 1px solid var(--line)}
+  .outcome-list li::before{
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 20px;
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .outcome-list li .muted{color: var(--ink-muted); font-size: 13px; display: block; margin-top: 4px}
+
+  .todo-note{
+    background: var(--accent-soft);
+    border: 1px dashed var(--accent);
+    border-radius: 4px;
+    padding: 14px 18px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--ink-muted);
+    line-height: 1.6;
+    margin-top: 18px;
+  }
+  .todo-note strong{color: var(--accent); font-weight: 500}
+
+  .back-link{
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--ink-muted);
+    text-decoration: none;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    margin-top: 8px;
+    transition: color 0.2s, gap 0.2s ease;
+  }
+  .back-link:hover{color: var(--accent); gap: 14px}
+
+  @media (max-width: 780px){
+    .feature-detail{grid-template-columns: 1fr; gap: 8px}
+    .stack-list{grid-template-columns: 1fr}
+  }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="wrap">
+
+  <nav class="topbar reveal" aria-label="Primary">
+    <a class="logo" href="/" aria-label="Ziloky portfolio — home">
+      <span class="mark" aria-hidden="true">Z</span>
+      <span class="logo-text">ziloky<span class="muted">/portfolio</span></span>
+    </a>
+    <div class="nav-right">
+      <div class="nav-links">
+        <a href="/#services">services</a>
+        <a href="/#work">work</a>
+        <a href="/#faq">faq</a>
+        <a href="/#contact">contact</a>
+      </div>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to light theme" aria-pressed="false">
+        <svg id="themeIcon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <main id="main">
+
+  <header class="case-hero">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">ziloky</a>
+      <span class="sep" aria-hidden="true">/</span>
+      <a href="/#work">case studies</a>
+      <span class="sep" aria-hidden="true">/</span>
+      <span aria-current="page">clicker-evolution</span>
+    </nav>
+
+    <div class="eyebrow reveal d1">Case Study · Custom Moderation Bot</div>
+    <h1 class="reveal d2">
+      Clicker <em>Evolution</em>
+    </h1>
+    <p class="lede reveal d3">
+      A custom <strong>Discord moderation bot</strong> written from scratch in Node.js. 25+ commands,
+      tiered auto-punishment, persistent tempbans across restarts, automod with burst-spam
+      detection, and structured logging — built because off-the-shelf bots couldn't be tuned
+      to the server it was made for.
+    </p>
+
+    <div class="hero-meta reveal d4">
+      <div>
+        <span class="label">Type</span>
+        <span class="value">Custom bot, single-server</span>
+      </div>
+      <div>
+        <span class="label">Stack</span>
+        <span class="value">Node.js · discord.js</span>
+      </div>
+      <div>
+        <span class="label">Commands</span>
+        <span class="value">25+</span>
+      </div>
+      <div>
+        <span class="label">Status</span>
+        <span class="value live"><span class="sr-only">Status: </span>In production</span>
+      </div>
+    </div>
+  </header>
+
+  <section id="problem" aria-labelledby="problem-heading">
+    <div class="section-head">
+      <span class="num" aria-hidden="true">01</span>
+      <h2 id="problem-heading">The <em>problem</em></h2>
+      <div class="rule" aria-hidden="true"></div>
+    </div>
+    <div class="prose" data-reveal>
+      <p>
+        Off-the-shelf moderation bots — MEE6, Dyno, Carl-bot — get a server to launch
+        quickly, but they impose their own logic on top of yours. Their warn systems
+        don't escalate the way you want them to. Their automod false-positives on the
+        kind of language your community actually uses. Their logs capture a lot of
+        noise and miss what matters. And when one of them goes down, the moderation
+        layer they own goes with it.
+      </p>
+      <p>
+        Clicker Evolution needed something opinionated about <em>this</em> server's
+        rules, not a generic configuration. Punishment had to escalate gradually but
+        meaningfully. Tempbans had to survive a process restart — losing track of
+        someone's ban timer because the bot rebooted is the kind of bug that erodes
+        member trust. Automod had to detect coordinated burst spam without flagging
+        a normal hyped conversation. None of that was reachable through a settings panel.
+      </p>
+    </div>
+  </section>
+
+  <section id="solution" aria-labelledby="solution-heading">
+    <div class="section-head">
+      <span class="num" aria-hidden="true">02</span>
+      <h2 id="solution-heading">The <em>solution</em></h2>
+      <div class="rule" aria-hidden="true"></div>
+    </div>
+    <div class="prose" data-reveal>
+      <p>
+        A moderation bot written from scratch in Node.js on top of <strong>discord.js</strong>,
+        with both slash and prefix command support so staff can use whichever
+        interface fits the moment. The architecture splits cleanly into three layers:
+        a command surface (warn, mute, kick, ban, tempban, massban, notes, channel
+        controls), an automation surface (a tiered warn-to-punishment pipeline plus
+        burst-spam and word-filter automod), and a persistence layer that writes
+        moderation state to JSON on disk so nothing — tempban timers, active mutes,
+        warn history — is lost across restarts.
+      </p>
+      <p>
+        Logging is split by purpose: message edits and deletions land in one channel,
+        moderation actions in another, with DM notifications to the affected member
+        when appropriate. Role-hierarchy protection is enforced at the command layer,
+        so a moderator can't accidentally action someone above them — a common
+        footgun in stock bots.
+      </p>
+    </div>
+  </section>
+
+  <section id="features" aria-labelledby="features-heading">
+    <div class="section-head">
+      <span class="num" aria-hidden="true">03</span>
+      <h2 id="features-heading">Feature <em>breakdown</em></h2>
+      <div class="rule" aria-hidden="true"></div>
+    </div>
+    <div data-reveal>
+      <div class="feature-detail">
+        <div class="label">WARN SYSTEM</div>
+        <div class="body">
+          Warns expire 14 days after they're issued. The pipeline auto-escalates as
+          warn count rises — escalation steps run from <strong>3 warns through 15</strong>,
+          progressing through mutes, then tempbans, then a permanent ban. Staff don't
+          have to remember the policy; the bot enforces it.
+        </div>
+      </div>
+      <div class="feature-detail">
+        <div class="label">MODERATION COMMANDS</div>
+        <div class="body">
+          Warn, mute, kick, ban, tempban, massban, notes, and nicknames — each
+          available as both a slash command and a prefix command. Notes are
+          mod-visible only and stay attached to a member's history.
+        </div>
+      </div>
+      <div class="feature-detail">
+        <div class="label">CHANNEL TOOLS</div>
+        <div class="body">
+          Purge with filters, slowmode, lockdown, and unlock. Channel-scoped so a
+          mod handling a flare-up in one channel never accidentally touches another.
+        </div>
+      </div>
+      <div class="feature-detail">
+        <div class="label">AUTOMOD</div>
+        <div class="body">
+          Configurable word filter and burst-spam detection (catches coordinated
+          flooding without flagging a normal active conversation). Role-hierarchy
+          protection prevents the bot from actioning members above its own role and
+          stops moderators from being out-ranked into a footgun.
+        </div>
+      </div>
+      <div class="feature-detail">
+        <div class="label">LOGGING</div>
+        <div class="body">
+          Dedicated channels for message edits and deletions, moderation actions,
+          and member-direction events. DM notifications go to affected members on
+          mutes/bans so they know what happened and why.
+        </div>
+      </div>
+      <div class="feature-detail">
+        <div class="label">PERSISTENCE</div>
+        <div class="body">
+          JSON-backed storage for warn history, active mutes, and tempban timers.
+          A graceful-shutdown hook flushes state on exit, and on startup the bot
+          rehydrates timers so a tempban that was 4 hours into a 24-hour window
+          before a restart still ends at the right minute.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="stack" aria-labelledby="stack-heading">
+    <div class="section-head">
+      <span class="num" aria-hidden="true">04</span>
+      <h2 id="stack-heading">Tech <em>stack</em></h2>
+      <div class="rule" aria-hidden="true"></div>
+    </div>
+    <div class="stack-list" data-reveal>
+      <div class="stack-item">
+        <div class="name">Node.js</div>
+        <div class="why">Long-running, single-process bots are exactly what Node's event loop is good at — and the deployment story (one process, one host) stays simple enough to debug at 3am.</div>
+      </div>
+      <div class="stack-item">
+        <div class="name">discord.js</div>
+        <div class="why">The ecosystem default for Discord bots: tracks Discord API changes quickly, stable enough to depend on, batteries included for slash + prefix command surfaces.</div>
+      </div>
+      <div class="stack-item">
+        <div class="name">JSON-backed storage</div>
+        <div class="why">No external database for a single-server bot. JSON on disk + atomic writes + a graceful-shutdown flush is enough state for warns, tempbans, and notes — and easy to inspect when something looks wrong.</div>
+      </div>
+      <div class="stack-item">
+        <div class="name">Self-hosted</div>
+        <div class="why">Runs on the client's own infrastructure. Hosting a bot long-term is its own job; keeping it on their box means I'm not on call when their VPS reboots.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="outcomes" aria-labelledby="outcomes-heading">
+    <div class="section-head">
+      <span class="num" aria-hidden="true">05</span>
+      <h2 id="outcomes-heading">Outcomes</h2>
+      <div class="rule" aria-hidden="true"></div>
+    </div>
+    <div data-reveal>
+      <ul class="outcome-list">
+        <li>
+          Tempban timers survive process restarts, so members can't out-wait an
+          accidental crash.
+          <span class="muted">No timer drift, no “oh the bot rebooted, you're free” edge case.</span>
+        </li>
+        <li>
+          Moderation policy is encoded in code, not staff memory.
+          <span class="muted">Escalation from 3 to 15 warns runs the same way at 3am as it does at 3pm.</span>
+        </li>
+        <li>
+          Logging splits noise from signal.
+          <span class="muted">Edits and deletions in one channel, mod actions in another — staff stop scrolling past what matters.</span>
+        </li>
+        <li>
+          25+ commands shipped with full slash + prefix parity.
+          <span class="muted">Staff fluent in either interface get the same surface.</span>
+        </li>
+      </ul>
+      <div class="todo-note">
+        <strong>[TODO: confirm with ziloky]</strong> Specific quantitative metrics
+        (member count where it runs, raid events handled, mod-hour reduction, uptime
+        figures) are not yet documented on the site. If you have them and want them
+        cited here, send the numbers and I'll drop them into this section.
+      </div>
+    </div>
+  </section>
+
+  <section id="back" aria-label="Continue browsing">
+    <a href="/#work" class="back-link">← Back to portfolio</a>
+  </section>
+
+  </main>
+
+  <footer class="foot">
+    <div>© <span id="year">2026</span> ziloky · built from scratch, no templates</div>
+    <div>case study · clicker evolution</div>
+  </footer>
+
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
+<script src="/assets/site.js" defer></script>
+</body>
+</html>

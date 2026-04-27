@@ -1,0 +1,15 @@
+{
+  "_comment": "Drop entries into the `testimonials` array to populate the homepage section. The site falls back to a graceful empty state when the array is empty. The `_template` field below documents the shape of an entry; it is ignored by the renderer.",
+
+  "_template": {
+    "name": "Person's display name",
+    "role": "e.g. Server Owner, Head Mod",
+    "server": "Server name (optional)",
+    "quote": "What they actually said. One to three sentences. No marketing voice. No invented quotes.",
+    "avatar": "/assets/testimonials/person.jpg",
+    "initials": "If no avatar, two-letter initials shown in the avatar circle. e.g. AK",
+    "link": "Optional URL — Discord invite, profile, server site"
+  },
+
+  "testimonials": []
+}

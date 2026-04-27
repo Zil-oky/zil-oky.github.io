@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-labelledby="title desc">
+  <title id="title">Ziloky — Discord Architect &amp; Bot Developer</title>
+  <desc id="desc">I build the servers that run themselves. 3 years, 50+ servers, custom moderation bots.</desc>
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="0%" r="60%">
+      <stop offset="0%" stop-color="#6b9dff" stop-opacity="0.18"/>
+      <stop offset="70%" stop-color="#6b9dff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="rule" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1f2126" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#1f2126" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#1f2126" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="#0b0c0e"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  <!-- Top bar -->
+  <g font-family="'JetBrains Mono', ui-monospace, monospace" font-size="16" fill="#9a9ba1">
+    <circle cx="80" cy="80" r="5" fill="#6b9dff"/>
+    <text x="96" y="86">ziloky<tspan fill="#5a5b61">/portfolio</tspan></text>
+    <text x="1120" y="86" text-anchor="end" fill="#5a5b61">2026</text>
+  </g>
+
+  <!-- Eyebrow -->
+  <g font-family="'JetBrains Mono', ui-monospace, monospace" font-size="18" fill="#9a9ba1" letter-spacing="1.5">
+    <line x1="80" y1="200" x2="120" y2="200" stroke="#5a5b61" stroke-width="1"/>
+    <text x="136" y="206">DISCORD ARCHITECT · BOT DEVELOPER</text>
+  </g>
+
+  <!-- Headline (Instrument Serif fallback to system serif) -->
+  <g font-family="'Instrument Serif', 'Times New Roman', serif" fill="#e8e8ea">
+    <text x="80" y="320" font-size="92" letter-spacing="-2.5">I build <tspan font-style="italic" fill="#9a9ba1">the servers</tspan></text>
+    <text x="80" y="420" font-size="92" letter-spacing="-2.5">that <tspan font-style="italic" fill="#6b9dff">run themselves.</tspan></text>
+  </g>
+
+  <!-- Rule -->
+  <line x1="80" y1="490" x2="1120" y2="490" stroke="url(#rule)" stroke-width="1"/>
+
+  <!-- Footer meta -->
+  <g font-family="'JetBrains Mono', ui-monospace, monospace" font-size="16">
+    <text x="80" y="540" fill="#5a5b61" letter-spacing="1">EXPERIENCE</text>
+    <text x="80" y="570" fill="#e8e8ea">3 years · 50+ servers</text>
+
+    <text x="380" y="540" fill="#5a5b61" letter-spacing="1">LARGEST</text>
+    <text x="380" y="570" fill="#e8e8ea">79k member community</text>
+
+    <text x="720" y="540" fill="#5a5b61" letter-spacing="1">STACK</text>
+    <text x="720" y="570" fill="#e8e8ea">Node.js · discord.js</text>
+
+    <text x="1120" y="570" text-anchor="end" fill="#6b9dff">zil-oky.github.io</text>
+  </g>
+</svg>
