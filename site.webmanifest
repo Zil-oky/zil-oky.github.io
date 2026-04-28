@@ -1,13 +1,14 @@
 {
-  "name": "Ziloky — Discord Architect & Bot Developer",
+  "name": "Ziloky",
   "short_name": "Ziloky",
-  "description": "Discord server architect and custom bot developer. 3 years, 50+ servers built.",
+  "description": "Discord server builder and bot developer based in Sweden.",
   "start_url": "/",
-  "display": "minimal-ui",
-  "background_color": "#0b0c0e",
-  "theme_color": "#0b0c0e",
+  "display": "standalone",
+  "background_color": "#080a0b",
+  "theme_color": "#080a0b",
   "icons": [
-    { "src": "/assets/favicon-32.png", "sizes": "32x32", "type": "image/png" },
-    { "src": "/assets/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+    { "src": "/assets/favicon.svg", "type": "image/svg+xml", "sizes": "any" },
+    { "src": "/assets/favicon-32.png", "type": "image/png", "sizes": "32x32" },
+    { "src": "/assets/apple-touch-icon.png", "type": "image/png", "sizes": "180x180" }
   ]
 }
